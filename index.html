@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>外贸英语教练</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">听说读写 + 外贸场景</p>
+          <h1>外贸英语教练</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-button" id="resetProgress" type="button">重置进度</button>
+          <button class="primary-button" id="openAssistant" type="button">客户消息助手</button>
+        </div>
+      </header>
+
+      <section class="summary-strip" aria-label="学习概览">
+        <div>
+          <span class="summary-label">今日目标</span>
+          <strong>20 分钟</strong>
+        </div>
+        <div>
+          <span class="summary-label">已完成</span>
+          <strong id="doneCount">0 项</strong>
+        </div>
+        <div>
+          <span class="summary-label">当前主题</span>
+          <strong id="currentTheme">询盘回复</strong>
+        </div>
+        <div>
+          <span class="summary-label">建议顺序</span>
+          <strong>听 - 说 - 写</strong>
+        </div>
+      </section>
+
+      <main class="workspace">
+        <aside class="module-rail" aria-label="课程模块">
+          <div class="section-heading">
+            <span>课程模块</span>
+            <small>6 个外贸场景</small>
+          </div>
+          <div id="moduleList" class="module-list"></div>
+        </aside>
+
+        <section class="lesson-panel" aria-live="polite">
+          <div class="lesson-header">
+            <div>
+              <p class="eyebrow" id="lessonStage">询盘阶段</p>
+              <h2 id="lessonTitle">客户询盘与需求确认</h2>
+              <p id="lessonScenario" class="muted"></p>
+            </div>
+            <button class="mark-button" id="markCurrent" type="button">完成本练习</button>
+          </div>
+
+          <div class="skill-tabs" role="tablist" aria-label="练习类型">
+            <button class="skill-tab active" type="button" data-skill="overview">总览</button>
+            <button class="skill-tab" type="button" data-skill="listening">听力</button>
+            <button class="skill-tab" type="button" data-skill="speaking">口语</button>
+            <button class="skill-tab" type="button" data-skill="reading">阅读</button>
+            <button class="skill-tab" type="button" data-skill="writing">写作</button>
+          </div>
+
+          <div id="lessonContent" class="lesson-content"></div>
+        </section>
+
+        <aside class="assistant-panel" id="assistantPanel" aria-label="客户消息助手">
+          <div class="section-heading">
+            <span>客户消息助手</span>
+            <small>翻译 · 朗读 · 回复</small>
+          </div>
+          <label class="field-label" for="customerMessage">粘贴客户发来的消息</label>
+          <textarea id="customerMessage" rows="8" placeholder="例如：Could you send me your best price, MOQ and delivery time for 500 pieces?"></textarea>
+          <p class="helper-text">当前版本使用本地外贸短语和场景规则，适合快速理解客户意思、朗读原文译文和起草回复。</p>
+
+          <div class="sample-row">
+            <button class="tiny-button" type="button" data-sample="price">价格询问</button>
+            <button class="tiny-button" type="button" data-sample="shipping">物流询问</button>
+            <button class="tiny-button" type="button" data-sample="complaint">售后问题</button>
+          </div>
+
+          <div class="assistant-actions">
+            <button class="primary-button" id="translateMessage" type="button">翻译并分析</button>
+            <button class="ghost-button" id="readOriginal" type="button">读原文</button>
+            <button class="ghost-button" id="readTranslation" type="button">读译文</button>
+          </div>
+
+          <div class="translation-box" id="translationBox">
+            <p class="muted">翻译结果会显示在这里。你也可以点击“读原文”和“读译文”听语音。</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
